@@ -3,6 +3,29 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+
+    this.state = {
+      buttonText : 'Enviar'
+    } 
+  }
+
+  componentDidMount() {
+    navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true}, video: true})
+    .then(function(stream) {
+      var video = document.querySelector('video');
+      video.srcObject = stream;
+      video.onloadedmetadata = function(e) {
+        video.play();
+      };
+    })
+    .catch(function(err) {
+      console.log(err.name + ": " + err.message);
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,6 +43,8 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <p>{this.state.buttonText}</p>
+        <video controls="controls"></video>
       </div>
     );
   }
