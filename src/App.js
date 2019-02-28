@@ -13,7 +13,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true}, video: true})
+    var constraints = {audio: { echoCancellation: true, noiseSuppression:true }, video: true};
+    navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream) {
       var video = document.querySelector('video');
       video.srcObject = stream;
