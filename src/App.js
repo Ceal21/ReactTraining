@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var constraints = {audio: { echoCancellation: true, noiseSuppression:true }, video: true};
+    var constraints = {audio: { echoCancellation: true, noiseSuppression:true }, video: {width:650, height:360}};
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream) {
       var video = document.querySelector('video');
@@ -31,10 +30,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <p>{this.state.buttonText}</p>
-        <video controls="controls"></video>
+        <div className="Container">
+          <p className="Number">1</p>
+          <p className="Text">¿Cuáles son las principales diferencias que encuentras entre UX y UI?</p>
+          <video controls="controls"></video>
+        </div>
       </div>
     );
   }
