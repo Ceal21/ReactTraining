@@ -1,16 +1,21 @@
-import React, { PropTypes } from 'react';
-import "antd/dist/antd.css";
+import React, { Component } from 'react';
+import {Container} from './container.js';
 
-const componentName = props => {
-    return (
-        <div class>
-            
-        </div>
-    )
+export class Index extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            step : 0
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+            <header className="App-header">
+            </header>
+            <Container />
+            </div>
+        );
+    }
 }
-
-componentName.propTypes = {
-    
-}
-
-export default componentName

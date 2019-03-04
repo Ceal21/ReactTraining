@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Index } from './components/index.js';
 
 class App extends Component {
-
   constructor(props){
     super(props)
 
@@ -28,15 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        </header>
-        <div className="Container">
-          <p className="Number">1</p>
-          <p className="Text">¿Cuáles son las principales diferencias que encuentras entre UX y UI?</p>
-          <video controls="controls"></video>
-        </div>
-      </div>
+      <Index />
     );
   }
 }
